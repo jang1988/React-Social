@@ -3,7 +3,6 @@ import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
-  console.log('props: ', props)
   return (
     <div>
       My posts
