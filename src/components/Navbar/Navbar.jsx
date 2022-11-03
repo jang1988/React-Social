@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './Navbar.module.css';
 
-const setActiveColor = (navData) => (navData.isActive ? s.activeLink : s.item);
+const setActiveColor = ({isActive}) => (isActive ? s.activeLink : s.item);
 
 const Navbar = () => {
   return (
