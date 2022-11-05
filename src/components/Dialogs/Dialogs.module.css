@@ -1,6 +1,7 @@
 .dialogs {
   display: grid;
   grid-template-columns: 2fr 10fr;
+  min-height: 100vh;
 }
 
 .dialogsItems {
@@ -8,12 +9,12 @@
 }
 
 a {
-  color: aliceblue;
+  color: #4d648d;
   text-decoration: none;
 }
 
 a.active {
-  color: gold;
+  color: #1e1f26;
 }
 
 .messages {

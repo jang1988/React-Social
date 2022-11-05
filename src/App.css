@@ -1,7 +1,6 @@
 .app-wrapper {
   margin: 0 auto;
   display: grid;
-  width: 1200px;
   grid-template-areas:
     'h h'
     'n c';
@@ -12,6 +11,13 @@
 }
 
 .app-wrapper-content {
-  grid-area: c;
-  background-color: cornflowerblue;
+  background-color: #d0e1f9;
+}
+
+@media (max-width: 550px) {
+  .app-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
 }
