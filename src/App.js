@@ -6,7 +6,7 @@ import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
 
-const App = ({dialogs, messages, posts}) => {
+const App = ({appState}) => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -14,9 +14,9 @@ const App = ({dialogs, messages, posts}) => {
         <Navbar />
         <div className="app-wrapper-content">
           <Routes>
-            <Route path="/" element={<Profile posts={posts} />} />
-            <Route path="/profile" element={<Profile posts={posts} />} />
-            <Route path="/dialogs/*" element={<Dialogs dialogs={dialogs} messages={messages} />} />
+            <Route path="/" element={<Profile state={appState.profilePage} />} />
+            <Route path="/profile" element={<Profile state={appState.profilePage} />} />
+            <Route path="/dialogs/*" element={<Dialogs state={appState.dialogsPage} />} />
             <Route path="/news" element={<Dialogs />} />
             <Route path="/music" element={<Dialogs />} />
             <Route path="/setings" element={<Dialogs />} />
