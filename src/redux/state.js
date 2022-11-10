@@ -6,7 +6,6 @@ let state = {
       { id: 23, message: 'Second post', likesCount: 43 },
     ],
   },
-
   dialogsPage: {
     dialogs: [
       { id: 1, name: 'Petro' },

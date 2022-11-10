@@ -4,6 +4,8 @@ import Message from './Message/Message';
 import s from './Dialogs.module.css';
 
 const Dialogs = ({state}) => {
+  console.log('state: ', state)
+  
   let dialogsElements = state.dialogs.map((dialog) => (
     <DialogItem key={dialog.id} name={dialog.name} id={dialog.id} />
   ));
