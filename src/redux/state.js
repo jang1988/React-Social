@@ -21,6 +21,12 @@ let state = {
       { id: 3, message: 'Yo' },
       { id: 4, message: 'Zzz' },
     ],
+    messagesOfFreands: [
+      { id: 1, message: '11111Hi!' },
+      { id: 2, message: '2222222How is you React' },
+      { id: 3, message: '333333333Yo' },
+      { id: 4, message: '44444444Zzz' },
+    ]
   },
 };
 
