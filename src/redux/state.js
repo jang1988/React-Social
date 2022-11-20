@@ -1,10 +1,13 @@
+import { rerenderEntireTree } from '../render';
+
 let state = {
   profilePage: {
     posts: [
       { id: 1, message: 'Hi, how are you?', likesCount: 0 },
       { id: 2, message: "It's my first post", likesCount: 23 },
-      { id: 23, message: 'Second post', likesCount: 43 },
+      { id: 3, message: 'Second post', likesCount: 43 },
     ],
+    newPostText: 'NEW POST...',
   },
   dialogsPage: {
     dialogs: [
@@ -26,8 +29,40 @@ let state = {
       { id: 2, message: '2222222How is you React' },
       { id: 3, message: '333333333Yo' },
       { id: 4, message: '44444444Zzz' },
-    ]
+    ],
+    newMessageText: 'NEW MESSAGE',
   },
 };
+
+export let addPost = () => {
+  let newPost = {
+    id: 4,
+    message: state.profilePage.newPostText,
+    likesCount: 22,
+  };
+  state.profilePage.posts.push(newPost);
+  state.profilePage.newPostText = '';
+  rerenderEntireTree(state);
+};
+
+export let updateNewPostText = (newText) => {
+  state.profilePage.newPostText = newText;
+  rerenderEntireTree(state);
+};
+
+export let addMessage = () => {
+  let newMessage = {
+    id: 5,
+    message: state.dialogsPage.newMessageText,
+  };
+  state.dialogsPage.messages.push(newMessage);
+  state.dialogsPage.newMessageText = '';
+  rerenderEntireTree(state);
+};
+
+export let updateNewMessageText = (newMessage) => {
+  state.dialogsPage.newMessageText = newMessage
+  rerenderEntireTree(state);
+}
 
 export default state;

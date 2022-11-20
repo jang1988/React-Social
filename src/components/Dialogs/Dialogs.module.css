@@ -24,7 +24,7 @@ a.active {
 
 .messageInner {
   display: flex;
-  align-items:center;
+  align-items: center;
   gap: 10px;
 }
 
@@ -63,4 +63,27 @@ a.active {
   flex-direction: column;
   align-items: flex-end;
   padding: 10px;
+}
+
+.sendWrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0 10px;
+}
+
+.myMessage {
+  width: 80%;
+  height: 30px;
+  resize: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.btnSend {
+  height: 50px;
+  color: white;
+  background-color: #4d648d;
+  border: none;
+  border-radius: 5px;
 }
