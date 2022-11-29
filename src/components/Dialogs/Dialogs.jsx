@@ -4,7 +4,7 @@ import Message from './Message/Message';
 import MessagesOfFreands from './MessagesOfFreands/MessageOfFreands';
 import s from './Dialogs.module.css';
 
-const Dialogs = ({ state, addMessage, updateNewMessageText, newMessageText }) => {
+const Dialogs = ({ state, dispatch }) => {
   let dialogsElements = state.dialogs.map((dialog) => (
     <DialogItem key={dialog.id} name={dialog.name} id={dialog.id} />
   ));
@@ -26,13 +26,14 @@ const Dialogs = ({ state, addMessage, updateNewMessageText, newMessageText }) =>
   const myMessage = React.createRef();
 
   const sendMessage = () => {
-    addMessage()
+    dispatch({ type: 'ADD-MESSAGE' });
+    myMessage.current.value = '';
   };
 
   const onMessageChange = () => {
     let text = myMessage.current.value;
-    updateNewMessageText(text)
-  }
+    dispatch({ type: 'UPDATE-NEW-MESSAGE-TEXT', newMessage: text });
+  };
 
   return (
     <div className={s.dialogs}>
@@ -41,7 +42,12 @@ const Dialogs = ({ state, addMessage, updateNewMessageText, newMessageText }) =>
         <div className={s.messages}>{messagesElements}</div>
         <div className={s.messagesF}>{messagesOfFreandsElements}</div>
         <div className={s.sendWrapper}>
-          <textarea onChange={onMessageChange} className={s.myMessage} ref={myMessage} value={newMessageText}></textarea>
+          <textarea
+            placeholder="NEW MASSAGE"
+            onChange={onMessageChange}
+            className={s.myMessage}
+            ref={myMessage}
+          ></textarea>
           <button onClick={sendMessage} className={s.btnSend}>
             Send message
           </button>

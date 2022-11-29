@@ -2,7 +2,7 @@ import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
-const MyPosts = ({ posts, addPost, newPostText, updateNewPostText }) => {
+const MyPosts = ({ posts, dispatch }) => {
   let postsElements = posts.map((post) => (
     <Post key={post.id} message={post.message} likesCount={post.likesCount} />
   ));
@@ -10,20 +10,26 @@ const MyPosts = ({ posts, addPost, newPostText, updateNewPostText }) => {
   let newPostElement = React.createRef();
 
   const sendPost = () => {
-    addPost();
+    dispatch({ type: 'ADD-POST' });
+    newPostElement.current.value = '';
   };
 
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    updateNewPostText(text)
-  }
+    dispatch({ type: 'UPDATE-NEW-POST-TEXT', newText: text });
+  };
 
   return (
     <div className={s.postBlock}>
       <h3>My posts</h3>
       <div>
         <div>
-          <textarea onChange={onPostChange} ref={newPostElement} className={s.textarea} value={newPostText} />
+          <textarea
+            placeholder="NEW POST"
+            onChange={onPostChange}
+            ref={newPostElement}
+            className={s.textarea}
+          />
         </div>
         <div>
           <button onClick={sendPost} className={s.btn}>

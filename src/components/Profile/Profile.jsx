@@ -1,13 +1,16 @@
 import React from 'react';
-import s from './Profile.module.css'
+import s from './Profile.module.css';
 import MyPosts from './MyPosts/MyPosts';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
-const Profile = ({profilePage, addPost, updateNewPostText}) => {
+const Profile = ({ profilePage, dispatch }) => {
   return (
     <div className={s.ProfileWrapper}>
       <ProfileInfo />
-      <MyPosts posts={profilePage.posts} addPost={addPost} newPostText={profilePage.newPostText} updateNewPostText={updateNewPostText} />
+      <MyPosts
+        posts={profilePage.posts}
+        dispatch={dispatch}
+      />
     </div>
   );
 };

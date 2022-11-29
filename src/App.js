@@ -6,13 +6,7 @@ import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
 
-const App = ({
-  state,
-  addPost,
-  updateNewPostText,
-  addMessage,
-  updateNewMessageText,
-}) => {
+const App = ({ state, dispatch }) => {
   return (
     <div className="app-wrapper">
       <Header />
@@ -24,8 +18,8 @@ const App = ({
             element={
               <Profile
                 profilePage={state.profilePage}
-                addPost={addPost}
-                updateNewPostText={updateNewPostText}
+                dispatch={dispatch}
+                
               />
             }
           />
@@ -34,8 +28,7 @@ const App = ({
             element={
               <Profile
                 profilePage={state.profilePage}
-                addPost={addPost}
-                updateNewPostText={updateNewPostText}
+                dispatch={dispatch}
               />
             }
           />
@@ -44,9 +37,7 @@ const App = ({
             element={
               <Dialogs
                 state={state.dialogsPage}
-                addMessage={addMessage}
-                updateNewMessageText={updateNewMessageText}
-                newMessageText={state.dialogsPage.newMessageText}
+                dispatch={dispatch}
               />
             }
           />
