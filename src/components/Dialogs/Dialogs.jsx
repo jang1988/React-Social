@@ -3,6 +3,7 @@ import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 import MessagesOfFreands from './MessagesOfFreands/MessageOfFreands';
 import s from './Dialogs.module.css';
+import { sendMessageCreater, updateNewMessageTextCreater } from '../../redux/state';
 
 const Dialogs = ({ state, dispatch }) => {
   let dialogsElements = state.dialogs.map((dialog) => (
@@ -26,13 +27,13 @@ const Dialogs = ({ state, dispatch }) => {
   const myMessage = React.createRef();
 
   const sendMessage = () => {
-    dispatch({ type: 'ADD-MESSAGE' });
+    dispatch(sendMessageCreater());
     myMessage.current.value = '';
   };
 
-  const onMessageChange = () => {
-    let text = myMessage.current.value;
-    dispatch({ type: 'UPDATE-NEW-MESSAGE-TEXT', newMessage: text });
+  const onMessageChange = (e) => {
+    let text = e.target.value;
+    dispatch(updateNewMessageTextCreater(text));
   };
 
   return (

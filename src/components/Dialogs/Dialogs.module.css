@@ -6,9 +6,11 @@
 
 .dialogsItems {
   padding: 10px;
+  font-weight: 900;
 }
 
 a {
+  
   color: #4d648d;
   text-decoration: none;
 }
