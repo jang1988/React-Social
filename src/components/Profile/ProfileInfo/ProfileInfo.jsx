@@ -5,7 +5,7 @@ const ProfileInfo = () => {
   return (
     <div className={s.ProfileInfoWrapper}>
       <img
-        src="https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350"
+        src="https://www.thoughtco.com/thmb/EV-FlBpaeZxvg_L3KudHhj_YTZs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/JavaScript-58acbb8a3df78c345bad32c2.jpg"
         alt="come text"
       />
       <div className={s.descriptionBlock}>ava + description</div>

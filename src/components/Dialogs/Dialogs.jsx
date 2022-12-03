@@ -3,7 +3,7 @@ import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 import MessagesOfFreands from './MessagesOfFreands/MessageOfFreands';
 import s from './Dialogs.module.css';
-import { sendMessageCreater, updateNewMessageTextCreater } from '../../redux/state';
+import { sendMessageCreater, updateNewMessageTextCreater } from '../../redux/dialogs-reducer';
 
 const Dialogs = ({ state, dispatch }) => {
   let dialogsElements = state.dialogs.map((dialog) => (
