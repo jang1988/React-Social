@@ -16,30 +16,18 @@ const App = ({ state, dispatch }) => {
           <Route
             path="/"
             element={
-              <Profile
-                profilePage={state.profilePage}
-                dispatch={dispatch}
-                
-              />
+              <Profile profilePage={state.profilePage} dispatch={dispatch} />
             }
           />
           <Route
             path="/profile"
             element={
-              <Profile
-                profilePage={state.profilePage}
-                dispatch={dispatch}
-              />
+              <Profile profilePage={state.profilePage} dispatch={dispatch} />
             }
           />
           <Route
             path="/dialogs/*"
-            element={
-              <Dialogs
-                state={state.dialogsPage}
-                dispatch={dispatch}
-              />
-            }
+            element={<Dialogs state={state.dialogsPage} dispatch={dispatch} />}
           />
           <Route path="/news" element={<Dialogs />} />
           <Route path="/music" element={<Dialogs />} />
