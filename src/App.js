@@ -4,34 +4,24 @@ import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
-import Dialogs from './components/Dialogs/Dialogs';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 
-const App = ({ state, dispatch }) => {
+const App = ({ store }) => {
   return (
     <div className="app-wrapper">
       <Header />
       <Navbar />
       <div className="app-wrapper-content">
         <Routes>
-          <Route
-            path="/"
-            element={
-              <Profile profilePage={state.profilePage} dispatch={dispatch} />
-            }
-          />
-          <Route
-            path="/profile"
-            element={
-              <Profile profilePage={state.profilePage} dispatch={dispatch} />
-            }
-          />
+          <Route path="/" element={<Profile store={store} />} />
+          <Route path="/profile" element={<Profile store={store} />} />
           <Route
             path="/dialogs/*"
-            element={<Dialogs state={state.dialogsPage} dispatch={dispatch} />}
+            element={<DialogsContainer store={store} />}
           />
-          <Route path="/news" element={<Dialogs />} />
-          <Route path="/music" element={<Dialogs />} />
-          <Route path="/setings" element={<Dialogs />} />
+          <Route path="/news" element={<DialogsContainer />} />
+          <Route path="/music" element={<DialogsContainer />} />
+          <Route path="/setings" element={<DialogsContainer />} />
         </Routes>
       </div>
     </div>

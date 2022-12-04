@@ -1,6 +1,6 @@
 {
-  "name": "react-way-of-samurai",
-  "version": "0.1.0",
+  "name": "react-social",
+  "version": "1.0",
   "private": true,
   "dependencies": {
     "react": "^16.6.3",

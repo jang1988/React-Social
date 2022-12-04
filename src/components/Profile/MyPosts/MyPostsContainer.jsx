@@ -4,29 +4,25 @@ import {
   updateNewPostTextActionCreater,
 } from '../../../redux/profile-reducer';
 import MyPosts from './MyPosts';
-import s from './MyPosts.module.css';
-import Post from './Post/Post';
 
-const MyPostsContainer = ({ posts, dispatch }) => {
-  let postsElements = posts.map((post) => (
-    <Post key={post.id} message={post.message} likesCount={post.likesCount} />
-  ));
-
-  let newPostElement = React.createRef();
+const MyPostsContainer = ({ store }) => {
+ 
+  let state = store.getState();
 
   const sendPost = () => {
-    dispatch(addPostActionCreater());
-    newPostElement.current.value = '';
+    store.dispatch(addPostActionCreater());
   };
 
-  let onPostChange = (text) => {
+  let postChange = (text) => {
     let action = updateNewPostTextActionCreater(text);
-    dispatch(action);
+    store.dispatch(action);
   };
 
   return (
     <MyPosts
-      updateNewPostText={onPostChange}
+      updateNewPostText={postChange}
+      sendPost={sendPost}
+      posts={state.profilePage.posts}
     />
   );
 };
