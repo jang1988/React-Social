@@ -6,9 +6,9 @@ import {
 import MyPosts from './MyPosts';
 
 let mapStateToProps = (state) => {
-  console.log('state: ', state)
   return {
     posts: state.profilePage.posts,
+    value: state.profilePage.newPostText,
   };
 };
 

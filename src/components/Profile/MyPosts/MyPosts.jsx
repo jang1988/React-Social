@@ -2,7 +2,7 @@ import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
-const MyPosts = ({ posts, updateNewPostText, sendPost}) => {
+const MyPosts = ({ posts, updateNewPostText, sendPost, value}) => {
   let postsElements = posts.map((post) => (
     <Post key={post.id} message={post.message} likesCount={post.likesCount} />
   ));
@@ -28,7 +28,7 @@ const MyPosts = ({ posts, updateNewPostText, sendPost}) => {
             placeholder="NEW POST"
             onChange={onPostChange}
             ref={newPostElement}
-            className={s.textarea}
+            className={s.textarea}value={value}
           />
         </div>
         <div>
